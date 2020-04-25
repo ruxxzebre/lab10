@@ -97,7 +97,7 @@ def maxIndex_iter(array):
 def maxIndex_recc(array, temp=None, x = 0):
     if temp == None: temp = array[0, 0]
 
-    if len(array) == 1:
+    if len(array) == 0:
         return temp
     else:
         if temp < array[0, x]:
