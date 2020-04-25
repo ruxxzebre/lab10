@@ -95,6 +95,23 @@ def maxIndex_iter(array):
     return temp
 
 def maxIndex_recc(array, temp=None, x = 0):
+    """
+    Here we have simple condition that I've added
+    Because of not wanting to pass any arguments into function
+    except array, when calling function first time.
+    
+    So, that function is doing it's thing this way:
+    Base condition : len(array) == 0
+    Recursive condition :
+    If temporary variable less then what we comparing
+    to, func assigns it to that bigger value.
+    Then we just moving througth the row of the array,
+    comparing values, and when we hit the end, 
+    we should remove the row, to continue moving througth the
+    array.
+    When we checked every element, the array is already empty,
+    so function meets the base condition, and returns a value.
+    """
     if temp == None: temp = array[0, 0]
 
     if len(array) == 0:
