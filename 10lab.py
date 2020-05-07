@@ -112,18 +112,20 @@ def maxIndex_recc(array, temp=None, x = 0):
     When we checked every element, the array is already empty,
     so function meets the base condition, and returns a value.
     """
-    if temp == None: temp = array[0, 0]
-
-    if len(array) == 0:
-        return temp
-    else:
-        if temp < array[0, x]:
-            temp = array[0, x]
-
-        if x == (len(array[0]) - 1):
-            array = np.delete(array, 0, 0)
-            x = -1
-        return maxIndex_recc(array, temp, x + 1)
+    def maxind(array):
+    temp = [0, 0]
+    x, y = 0, 0
+    def recursive(array, temp, x, y):
+        if (len(array) - 1, len(array) - 1) == (x, y):
+            return (y, x)
+        else:
+            if array[temp[0], temp[1]] < array[y, x]:
+                temp[0], temp[1] = y, x
+            if x == (len(array) - 1):
+                return recursive(array, temp, 0, y + 1)
+            else:
+                return recursive(array, temp, x + 1, y)
+    return recursive(array, temp, x, y)
 
 
 def backwards_iter(num_array):
